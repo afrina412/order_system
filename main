@@ -29,12 +29,13 @@ while(true){
     
 if (choice == 0) break;
 
+//hanya boleh letak choice 1-5
 if ( choice < 1 || choice > 5) {
     cout << " invalid choice , please enter valid choice!" << endl;
     continue;
 
 }
-cout <<"enter your quantity " << item[choice - 1]<< ":";
+cout <<"enter your quantity " << item [choice - 1]<< ":";
 cin >> quantity;
 
 totalprice += price [choice -1] * quantity;
@@ -46,7 +47,18 @@ cout << "added " << quantity<<"x "<< item [choice - 1] << " into your basket"<<e
   cout << fixed << setprecision(2); // Format output to 2 decimal places
     cout << "Your total price is: RM " << totalprice << endl;
 
-    cout << "Thank you for your order!" << endl;
+//discount 
+double discountpercent, discountamount, discountedtotal;
 
+cout << "Enter you discount (eg. 10 = 10%) : " ;
+cin >> discountpercent;
+
+discountamount = (discountpercent / 100 ) * totalprice;
+discountedtotal = totalprice - discountamount;
+
+cout << " Your discount is successfully RM " << discountamount << endl ;
+cout << " Total price is RM " << discountedtotal << endl;
+
+cout <<" Thank you for you purchase" ;
     return 0;
 }
